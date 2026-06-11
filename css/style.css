@@ -30,6 +30,8 @@ main.wrap{
   left:calc(50% - 300px);
   transform-style:preserve-3d;/*안쪽의 요소들을 3d공간에 배치하기 위한 속성*/
   animation:ani linear 40s infinite;
+  /*나중에 article을 -값으로 z축으로 이동하여 아래로 내리면 부모인 section에 가려져서 마우스 이벤트가 발생되지 않으니 section의 pointer-events를 제거하고 article의 pointer-events를 auto로 설정(초기화)하여 article에만 이벤트가 발생되도록 설정합니다. */
+  pointer-events: none;
 }
 /*천천히 회전하는 효과*/
 @keyframes ani {
@@ -45,6 +47,8 @@ main.wrap{
   position:absolute;
   inset:0;
   backface-visibility:hidden;/*뒷면이 안보이도록 설정*/
+  /*section의 자식인 article은 선택할수 있도록 pointer-events값을 초기화 시켜줍니다*/
+  pointer-events: auto;
 }
 .wrap #circle article h1{
   position:absolute;
